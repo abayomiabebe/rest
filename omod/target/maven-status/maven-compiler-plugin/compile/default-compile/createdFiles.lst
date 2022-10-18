@@ -1,3 +1,5 @@
+org\openmrs\module\basicexample\web\controller\BasicexampleController.class
 org\openmrs\module\basicexample\web\controller\ItemResource.class
+org\openmrs\module\basicexample\web\controller\BasicexampleResourceController.class
 org\openmrs\module\basicexample\fragment\controller\UsersFragmentController.class
 org\openmrs\module\basicexample\extension\html\AdminList.class

@@ -18,11 +18,15 @@ import org.openmrs.module.basicexample.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("basicexample.BasicexampleDao")
+//@Repository("basicexample.BasicexampleDao")
 public class BasicexampleDao {
 	
 	@Autowired
 	DbSessionFactory sessionFactory;
+	
+	public void setSessionFactory(DbSessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	private DbSession getSession() {
 		return sessionFactory.getCurrentSession();

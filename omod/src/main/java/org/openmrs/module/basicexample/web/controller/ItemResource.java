@@ -34,9 +34,7 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 	
 	@Override
 	public Item getByUniqueId(String string) {
-		System.out.println("****************GET: ");
 		List<Item> its = Context.getService(BasicexampleService.class).getAllItems();
-		
 		Item it = new Item();
 		return it;
 	}
@@ -61,7 +59,6 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 			DelegatingResourceDescription description = new DelegatingResourceDescription();
 			description.addProperty("uuid");
 			description.addProperty("description");
-			description.addProperty("owner");
 			description.addLink("full", ".?v=" + RestConstants.REPRESENTATION_FULL);
 			description.addSelfLink();
 			return description;
@@ -69,7 +66,6 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 			DelegatingResourceDescription description = new DelegatingResourceDescription();
 			description.addProperty("uuid");
 			description.addProperty("description");
-			description.addProperty("owner");
 			description.addSelfLink();
 			return description;
 		}

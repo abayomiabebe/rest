@@ -30,7 +30,11 @@
 		</property>
 		<property name="target">
 			<bean class="org.openmrs.module.basicexample.api.impl.BasicexampleServiceImpl">
-				<property name="dao" ref="basicexample.BasicexampleDao" />
+				<property name="dao">
+					<bean class="org.openmrs.module.basicexample.api.dao.BasicexampleDao">
+						<property name="sessionFactory" ref="dbSessionFactory" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="preInterceptors">
