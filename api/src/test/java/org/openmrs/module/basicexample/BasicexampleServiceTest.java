@@ -51,7 +51,7 @@ public class BasicexampleServiceTest {
 		
 		when(dao.saveItem(item)).thenReturn(item);
 		
-		User user = new User();
+		User user = userService.getUser(1);
 		when(userService.getUser(1)).thenReturn(user);
 		
 		//When

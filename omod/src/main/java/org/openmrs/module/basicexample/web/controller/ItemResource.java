@@ -6,8 +6,8 @@
 package org.openmrs.module.basicexample.web.controller;
 
 import java.util.List;
+
 import org.openmrs.api.context.Context;
-import org.openmrs.module.webservices.rest.web.resource.impl.MetadataDelegatingCrudResource;
 import org.openmrs.module.basicexample.Item;
 import org.openmrs.module.basicexample.api.BasicexampleService;
 import org.openmrs.module.webservices.rest.web.RequestContext;
@@ -17,20 +17,18 @@ import org.openmrs.module.webservices.rest.web.annotation.Resource;
 import org.openmrs.module.webservices.rest.web.representation.DefaultRepresentation;
 import org.openmrs.module.webservices.rest.web.representation.FullRepresentation;
 import org.openmrs.module.webservices.rest.web.representation.Representation;
-import org.openmrs.module.webservices.rest.web.resource.api.PageableResult;
-import org.openmrs.module.webservices.rest.web.response.ResponseException;
 import org.openmrs.module.webservices.rest.web.resource.impl.DataDelegatingCrudResource;
 import org.openmrs.module.webservices.rest.web.resource.impl.DelegatingResourceDescription;
 import org.openmrs.module.webservices.rest.web.resource.impl.NeedsPaging;
+import org.openmrs.module.webservices.rest.web.response.ResourceDoesNotSupportOperationException;
+import org.openmrs.module.webservices.rest.web.response.ResponseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-@Resource(name = RestConstants.VERSION_1 + "/item", supportedClass = Item.class, supportedOpenmrsVersions = { "2.0.*",
-        "2.1.*", "2.2.*", "2.3.*", "2.4.* " })
+@Resource(name = RestConstants.VERSION_1 + "/item", supportedClass = Item.class, supportedOpenmrsVersions = { "1.8.* - 2.4.*" })
 public class ItemResource extends DataDelegatingCrudResource<Item> {
 	
-	@Autowired
-	BasicexampleService basicexampleService;
+	private static final Logger log = LoggerFactory.getLogger(ItemResource.class);
 	
 	@Override
 	public Item getByUniqueId(String string) {
@@ -39,6 +37,7 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 		return it;
 	}
 	
+	@Override
 	public NeedsPaging<Item> doGetAll(RequestContext context) {
 		return new NeedsPaging<Item>(Context.getService(BasicexampleService.class).getAllItems(), context);
 	}
@@ -73,13 +72,28 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 	}
 	
 	@Override
+	public DelegatingResourceDescription getCreatableProperties() {
+		DelegatingResourceDescription description = new DelegatingResourceDescription();
+		description.addRequiredProperty("description");
+		return description;
+	}
+	
+	@Override
+	public DelegatingResourceDescription getUpdatableProperties() throws ResourceDoesNotSupportOperationException {
+		DelegatingResourceDescription description = new DelegatingResourceDescription();
+		description.addRequiredProperty("description");
+		return description;
+	}
+	
+	@Override
 	public Item newDelegate() {
 		return new Item();
 	}
 	
 	@Override
 	public Item save(Item t) {
-		Item item = basicexampleService.saveItem(t);
+		t.setOwner(Context.getAuthenticatedUser());
+		Item item = Context.getService(BasicexampleService.class).saveItem(t);
 		return item;
 	}
 	

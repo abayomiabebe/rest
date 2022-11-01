@@ -77,4 +77,9 @@ public class Item extends BaseOpenmrsData {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	@Override
+	public String toString() {
+		return "Item{" + "id=" + id + ", owner=" + owner + ", description='" + description + '\'' + '}';
+	}
 }

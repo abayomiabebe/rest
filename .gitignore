@@ -1,0 +1,8 @@
+omod/target/**
+.idea/**
+.settings
+.project
+api/.project
+api/.settings
+api/.classpath
+api/bin/**
