@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
 //@Repository("basicexample.BasicexampleDao")
 public class BasicexampleDao {
 	
-	@Autowired
 	DbSessionFactory sessionFactory;
 	
 	public void setSessionFactory(DbSessionFactory sessionFactory) {

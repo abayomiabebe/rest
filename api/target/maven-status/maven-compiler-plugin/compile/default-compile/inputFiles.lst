@@ -1,6 +1,6 @@
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\api\impl\BasicexampleServiceImpl.java
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\api\dao\BasicexampleDao.java
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\BasicexampleConfig.java
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\BasicexampleActivator.java
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\Item.java
-D:\rest\api\src\main\java\org\openmrs\module\basicexample\api\BasicexampleService.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/api/impl/BasicexampleServiceImpl.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/Item.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/api/BasicexampleService.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/BasicexampleConfig.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/api/dao/BasicexampleDao.java
+/home/abertnamanya/Desktop/spring/Openmrs Tickets issue Repositories/rest/api/src/main/java/org/openmrs/module/basicexample/BasicexampleActivator.java
