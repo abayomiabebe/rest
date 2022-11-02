@@ -25,7 +25,8 @@ import org.openmrs.module.webservices.rest.web.response.ResponseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Resource(name = RestConstants.VERSION_1 + "/item", supportedClass = Item.class, supportedOpenmrsVersions = { "1.8.* - 2.4.*" })
+@Resource(name = RestConstants.VERSION_1 + "/item", supportedClass = Item.class, supportedOpenmrsVersions = { "1.8.*",
+        "2.0.*", "2.1.*", "2.2.*", "2.3.*", "2.4.* " })
 public class ItemResource extends DataDelegatingCrudResource<Item> {
 	
 	private static final Logger log = LoggerFactory.getLogger(ItemResource.class);
@@ -44,12 +45,14 @@ public class ItemResource extends DataDelegatingCrudResource<Item> {
 	
 	@Override
 	protected void delete(Item t, String string, RequestContext rc) throws ResponseException {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+		                                                               // Tools | Templates.
 	}
 	
 	@Override
 	public void purge(Item t, RequestContext rc) throws ResponseException {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+		                                                               // Tools | Templates.
 	}
 	
 	@Override
